@@ -1,0 +1,4 @@
+# Customized setings for conmand
+
+# Define nice level for conmand
+SERVICE_RUN_NICE_LEVEL="+5"

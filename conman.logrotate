@@ -1,0 +1,8 @@
+/var/log/conman/* {
+    olddir /var/log/archiv
+    create 640 root root
+    sharedscripts
+    postrotate
+        /bin/killall -HUP conmand
+    endscript
+}
