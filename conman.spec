@@ -1,4 +1,5 @@
 Summary:	The Console Manager
+Summary(pl):	Zarz±dca konsol
 Name:		conman
 Version:	0.1.9.2
 Release:	1
@@ -11,6 +12,8 @@ Source2:	%{name}d.sysconfig
 Source3:	%{name}.logrotate
 URL:		http://home.gna.org/conman/
 BuildRequires:	libwrap-devel
+Requires(post,preun):	/sbin/ldconfig
+Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -18,6 +21,12 @@ ConMan is a console management program designed to support a large
 number of console devices and simultaneous users. It currently
 supports local serial devices and remote terminal servers (via the
 telnet protocol).
+
+%description -l pl
+ConMan to program do zarz±dzania konsolami zaprojektowany do obs³ugi
+du¿ej liczby urz±dzeñ konsolowych i jednoczesnych u¿ytkowników.
+Aktualnie obs³uguje lokalne urz±dzenia szeregowe i zdalne serwery
+terminali (poprzez protokó³ telnet).
 
 %prep
 %setup -q
@@ -31,15 +40,15 @@ telnet protocol).
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_sysconfdir}/{rc.d/init.d,sysconfig,logrotate.d}
+install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig,logrotate.d}
 install -d $RPM_BUILD_ROOT/var/log/conman
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1}	$RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/conmand
-install %{SOURCE2}	$RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/conmand
-install %{SOURCE3}	$RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/conmand
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/conmand
+install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/conmand
+install %{SOURCE3} $RPM_BUILD_ROOT/etc/logrotate.d/conmand
 
 rm -rf $RPM_BUILD_ROOT%{_libdir}/%{name}/examples
 
