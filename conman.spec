@@ -1,5 +1,5 @@
 Summary:	The Console Manager
-Summary(pl.UTF-8):   Zarządca konsol
+Summary(pl.UTF-8):	Zarządca konsol
 Name:		conman
 Version:	0.1.9.2
 Release:	1
