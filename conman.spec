@@ -1,5 +1,5 @@
 Summary:	The Console Manager
-Summary(pl):	Zarz±dca konsol
+Summary(pl.UTF-8):   ZarzÄ…dca konsol
 Name:		conman
 Version:	0.1.9.2
 Release:	1
@@ -22,11 +22,11 @@ number of console devices and simultaneous users. It currently
 supports local serial devices and remote terminal servers (via the
 telnet protocol).
 
-%description -l pl
-ConMan to program do zarz±dzania konsolami zaprojektowany do obs³ugi
-du¿ej liczby urz±dzeñ konsolowych i jednoczesnych u¿ytkowników.
-Aktualnie obs³uguje lokalne urz±dzenia szeregowe i zdalne serwery
-terminali (poprzez protokó³ telnet).
+%description -l pl.UTF-8
+ConMan to program do zarzÄ…dzania konsolami zaprojektowany do obsÅ‚ugi
+duÅ¼ej liczby urzÄ…dzeÅ„ konsolowych i jednoczesnych uÅ¼ytkownikÃ³w.
+Aktualnie obsÅ‚uguje lokalne urzÄ…dzenia szeregowe i zdalne serwery
+terminali (poprzez protokÃ³Å‚ telnet).
 
 %prep
 %setup -q
