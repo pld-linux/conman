@@ -1,5 +1,5 @@
 /var/log/conman/* {
-    olddir /var/log/archiv
+    olddir /var/log/archive
     create 640 root root
     sharedscripts
     postrotate
