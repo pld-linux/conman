@@ -14,7 +14,7 @@ URL:		http://home.gna.org/conman/
 BuildRequires:	libwrap-devel
 Requires(post,preun):	/sbin/ldconfig
 Requires:	rc-scripts
-Conflicts:	logrotate < 3.7.4
+Conflicts:	logrotate < 3.7-4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
