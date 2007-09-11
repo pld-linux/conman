@@ -14,6 +14,7 @@ URL:		http://home.gna.org/conman/
 BuildRequires:	libwrap-devel
 Requires(post,preun):	/sbin/ldconfig
 Requires:	rc-scripts
+Conflicts:	logrotate < 3.7.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -77,4 +78,4 @@ fi
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*.conf
 %attr(754,root,root) /etc/rc.d/init.d/conmand
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/conmand
-/etc/logrotate.d/*
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/logrotate.d/*
