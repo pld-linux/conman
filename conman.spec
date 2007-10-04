@@ -12,6 +12,7 @@ Source2:	%{name}d.sysconfig
 Source3:	%{name}.logrotate
 URL:		http://home.gna.org/conman/
 BuildRequires:	libwrap-devel
+BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(post,preun):	/sbin/ldconfig
 Requires:	rc-scripts
 Conflicts:	logrotate < 3.7-4
