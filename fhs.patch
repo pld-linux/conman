@@ -1,0 +1,31 @@
+--- conman-conman-0.2.7/man/conman.conf.5.in~	2011-04-22 02:20:51.000000000 +0200
++++ conman-conman-0.2.7/man/conman.conf.5.in	2016-04-16 20:40:12.253572577 +0200
+@@ -227,7 +227,7 @@
+ An external process-based connection is defined by the "\fIpath\fR
+ \fIargs\fR" format (where \fIpath\fR is the pathname to an executable
+ file/script, and any additional \fIargs\fR are space-delimited); the
+-\fI@prefix@/lib/@PROJECT@/exec\fR directory contains scripts for various
++\fI@prefix@/share/@PROJECT@/exec\fR directory contains scripts for various
+ console types.
+ .br
+ .sp
+--- conman-conman-0.2.7/Makefile.in~	2011-04-22 02:20:51.000000000 +0200
++++ conman-conman-0.2.7/Makefile.in	2016-04-16 20:40:58.335158741 +0200
+@@ -129,13 +129,13 @@
+ 	      && find * -name ".*" -prune -o -type f -print`; do \
+ 	    expr "$$f" : ".*\.exp" && mode=755 || mode=644; \
+ 	    echo $(INSTALL) -m 755 -d \
+-	      `dirname $(DESTDIR)$(prefix)/lib/$(PROJECT)/$$f`; \
++	      `dirname $(DESTDIR)$(prefix)/share/$(PROJECT)/$$f`; \
+ 	    $(INSTALL) -m 755 -d \
+-	      `dirname $(DESTDIR)$(prefix)/lib/$(PROJECT)/$$f`; \
++	      `dirname $(DESTDIR)$(prefix)/share/$(PROJECT)/$$f`; \
+ 	    echo $(INSTALL) -m $${mode} \
+-	      lib/$$f $(DESTDIR)$(prefix)/lib/$(PROJECT)/$$f; \
++	      lib/$$f $(DESTDIR)$(prefix)/share/$(PROJECT)/$$f; \
+ 	    $(INSTALL) -m $${mode} lib/$$f \
+-	      $(DESTDIR)$(prefix)/lib/$(PROJECT)/$$f; \
++	      $(DESTDIR)$(prefix)/share/$(PROJECT)/$$f; \
+ 	  done
+ 	@ for d in man1 man5 man8; do \
+ 	    echo $(INSTALL) -m 755 -d $(DESTDIR)$(mandir)/$$d; \

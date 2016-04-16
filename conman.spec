@@ -1,16 +1,17 @@
 Summary:	The Console Manager
 Summary(pl.UTF-8):	Zarządca konsol
 Name:		conman
-Version:	0.1.9.2
+Version:	0.2.7
 Release:	1
 License:	GPL
 Group:		Daemons
-Source0:	http://download.gna.org/conman/0.1.9.2/%{name}-%{version}.tar.bz2
-# Source0-md5:	8e737e64ae3dfac37bd93df38ac0f6cb
+Source0:	https://github.com/dun/conman/archive/%{name}-%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	00316e7340e4741d5d38dcb952fb1e83
 Source1:	%{name}d.init
 Source2:	%{name}d.sysconfig
 Source3:	%{name}.logrotate
-URL:		http://home.gna.org/conman/
+Patch0:		fhs.patch
+URL:		http://dun.github.io/conman/
 BuildRequires:	libwrap-devel
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(post,preun):	/sbin/ldconfig
@@ -31,7 +32,8 @@ Aktualnie obsługuje lokalne urządzenia szeregowe i zdalne serwery
 terminali (poprzez protokół telnet).
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{name}-%{version}
+%patch0 -p1
 
 %build
 %configure \
@@ -52,7 +54,7 @@ install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/conmand
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/conmand
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/logrotate.d/conmand
 
-rm -rf $RPM_BUILD_ROOT%{_libdir}/%{name}/examples
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/%{name}/examples
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -72,7 +74,7 @@ fi
 %doc AUTHORS ChangeLog FAQ NEWS
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_sbindir}/*
-%{_libdir}/%{name}
+%{_datadir}/%{name}
 %dir %{_var}/log/conman
 %{_mandir}/man*/*
 
